@@ -13,11 +13,11 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Введите арифметическое выражение");
+        System.out.println("Р’РІРµРґРёС‚Рµ Р°СЂРёС„РјРµС‚РёС‡РµСЃРєРѕРµ РІС‹СЂР°Р¶РµРЅРёРµ");
         String[] input = sc.nextLine().split(" ");
 
         if (input.length != 3){
-            throw new Exception("Неверное число аргументов");
+            throw new Exception("РќРµРІРµСЂРЅРѕРµ С‡РёСЃР»Рѕ Р°СЂРіСѓРјРµРЅС‚РѕРІ");
         }
         checkRoman(input);
         System.out.println(calc(input));
@@ -34,7 +34,7 @@ public class Main {
             operand = inputArray[1].charAt(0);
             int result = calculation(firstArg,secondArg, operand);
             if (result <= 0){
-                throw new Exception("Результатом работы с римскими числами могут быть только положительные числа");
+                throw new Exception("Р РµР·СѓР»СЊС‚Р°С‚РѕРј СЂР°Р±РѕС‚С‹ СЃ СЂРёРјСЃРєРёРјРё С‡РёСЃР»Р°РјРё РјРѕРіСѓС‚ Р±С‹С‚СЊ С‚РѕР»СЊРєРѕ РїРѕР»РѕР¶РёС‚РµР»СЊРЅС‹Рµ С‡РёСЃР»Р°");
             }
             return Converter.arabicToRoman(result);
         } else if (isNumber(inputArray[0]) && isNumber(inputArray[2])){
@@ -45,11 +45,11 @@ public class Main {
             if (firstArg >= 0 && firstArg <= 10 && secondArg >= 0 && secondArg <= 10 ){
                 return Integer.toString(calculation(firstArg, secondArg, operand));
             } else {
-                throw new Exception("Допустимо использовать только числа от 1 до 10");
+                throw new Exception("Р”РѕРїСѓСЃС‚РёРјРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ С‡РёСЃР»Р° РѕС‚ 1 РґРѕ 10");
             }
 
         } else {
-            throw new NumberFormatException("Необходимо использовать только арабские или только римские числа от 1 до 10");
+            throw new NumberFormatException("РќРµРѕР±С…РѕРґРёРјРѕ РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚РѕР»СЊРєРѕ Р°СЂР°Р±СЃРєРёРµ РёР»Рё С‚РѕР»СЊРєРѕ СЂРёРјСЃРєРёРµ С‡РёСЃР»Р° РѕС‚ 1 РґРѕ 10");
         }
 
     }
@@ -75,7 +75,7 @@ public class Main {
                 return ++i;
             }
         }
-        throw new Exception("Нет такого арабского числа");
+        throw new Exception("РќРµС‚ С‚Р°РєРѕРіРѕ Р°СЂР°Р±СЃРєРѕРіРѕ С‡РёСЃР»Р°");
     }
 
     public static int calculation (int firstArg, int secondArg, char operand) throws ArithmeticException{
@@ -85,12 +85,12 @@ public class Main {
             case ('-') -> result = firstArg - secondArg;
             case ('/') -> {
                 if (secondArg == 0) {
-                    throw new ArithmeticException("Деление на ноль недоступно");
+                    throw new ArithmeticException("Р”РµР»РµРЅРёРµ РЅР° РЅРѕР»СЊ РЅРµРґРѕСЃС‚СѓРїРЅРѕ");
                 }
                 result = firstArg / secondArg;
             }
             case ('*') -> result = firstArg * secondArg;
-            default -> throw new ArithmeticException("Недопустимый операнд");
+            default -> throw new ArithmeticException("РќРµРґРѕРїСѓСЃС‚РёРјС‹Р№ РѕРїРµСЂР°РЅРґ");
         }
         return result;
     }
