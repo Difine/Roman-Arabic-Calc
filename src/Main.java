@@ -15,11 +15,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите арифметическое выражение");
         String[] input = sc.nextLine().split(" ");
-
-        if (input.length != 3){
-            throw new Exception("Неверное число аргументов");
-        }
-        checkRoman(input);
+        sc.close();
         System.out.println(calc(input));
     }
 
@@ -27,6 +23,12 @@ public class Main {
 
         int firstArg, secondArg;
         char operand;
+
+        if (inputArray.length != 3){
+            throw new Exception("Неверное число аргументов");
+        }
+        checkRoman(inputArray);
+
 
         if(isRoman){
             firstArg = romanToArabicConverter(inputArray[0]);
